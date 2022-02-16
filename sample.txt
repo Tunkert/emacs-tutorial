@@ -1,0 +1,116 @@
+A Review of Emacs Markdown Mode
+
+It should be noted that it will insert a heading the same level as the one above. If you want to insert a lower or higher level heading you’ll have to alter the number of hashtags manually.
+
+About a year ago I did a video on the power of markdown. At the time I was a high school mathematics teacher and I was looking for something where I could write documents in one format and export them to several other formats.  I found markdown, watching some video on YouTube I’m sure and realized it was good for a lot more than writing blogs for static site generators like Jekyll and Hugo. With markdown you can export to several formats, such as html, pdf, and word documents among others.
+
+During last year I was exploring markdown writing my posts in VSCode and Atom before moving on to VIM and then Emacs exploring org mode along the way. Eventually I came back to markdown, for whatever text editor I was using, and settled on that for writing blog posts in my 90s style blog.
+
+Yesterday, as I was setting up Emacs for Python, I figured I’d explore Markdown Mode
+
+Exploring Markdown Mode
+Installation of markdown mode was easy through Melpa, the main package manager for Emacs. After either running the command “package-list-packages” or “package-refresh”, then run “package-install” and install the package markdown-mode. I realized once I installaed it there were a lot of key bindings to help with markdown mode as I wrote this post yesterday. There’s a couple I like:
+
+Links
+Links can be created in a mardkown document easily with control C, control l. It’s a nice easy convention to remember, l for link. Once that key chord is run you first can enter the url right under the status bar. It will then have you enter in the link text, which you can leave blank for a plain link. This is where I have one issue with it, it doesn’t seem the link text can include spaces. For a lot of my links I like to have a space or two and use a phrase for the link text. This can easily be overcome as it’s a minor issue but I would prefer being able to add a space. Perhaps I’m not knowledgeable enough yet with markdown mode and I’m missing something. If you think that’s the case you can email me by clicking on the word email. I kept that one to one word.
+
+One thing I really like about the link option in markdown mode is that it does give you the option to add a title to the link. I’ve been doing that as I continue my 90s blog experiment to see if it helps with SEO any.
+
+Images
+Images can be created in a similar way to links with the keychord combination control C, control i. I haven’t used this feature a lot but just for demonstration I’ll use it to put an image of a kitty below.
+
+my kitty Freddy
+my kitty
+Much like with links I find for the alt text you can’t insert a space until after the link is created. This just requires me jumping back with alt b through the words and then fine tuning with control f and b. It is a nice option, however, to quickly add a link or image with a quick key chord combination.
+
+Headings
+With control c, control s, h you can quickly add a heading. I’m not sure this is any faster than typing a hastag or two or three depending on whatever heading you use.
+
+With this option it does style it with opening and closing hashtags. With markdown you can just use hashtags at the start, but for styling you can also use hashtags at the end.
+
+It should be noted that it will insert a heading the same level as the one above. If you want to insert a lower or higher level heading you’ll have to alter the number of hashtags manually.
+
+Text Styling
+Text styling can be made easy with keyboard combinations starting all with control c, control s. After running this key combination you’ll see lots of options pop up under the status bar. Two that you’ll probably use a lot are b for bold and i for italic. You can also use c for inline code and q for a blockquote, something like:
+
+I’m using markdown mode - Tim Unkert
+
+Well, maybe that’s not the best usage but you get the point. For pre text blocks you can use p after the initial key chord.
+
+This is pre-text.
+<code> and stuff
+Anyways, you get the point. For pre-text it indents and highlights a little differently.
+
+Horizontal Rules
+For a horizontal rule you can use the key chord - control c, control s, -. With that key chord combination I’ll insert a horizontal rule below:
+
+That’s pretty nice.
+
+Footnotes
+To insert a footnote you’ll simply use the key chord combination, control c, control s, f.
+
+I used this resource.1
+
+I don’t typically use footnotes but maybe I’ll start. This feature could be especially helpful for those still in the academic arena as it’s a quick way to insert a footnote.
+
+Wiki Links
+To insert wiki links you can use control c, control s, w. I don’t use this feature so I really can’t comment on it but it could be useful for some.
+
+Preview Mode and Exports
+Preview Mode
+I can’t seem to get preview mode to work, at least on a chromebook. When I use the key chord combination, control c, control c, p all that happens is that the terminal (the one that installs when you turn on the Linux container on a chromebook) opens up. Not sure what that’s about.
+
+Live Preview Mode
+Live preview mode seems to work, however, which is accessed by the key chord combination, control c, control c, l. This opens the preview of the markdown below the current markdown buffer. It’s pretty nice and keeps with the current theme you’re using in Emacs.
+
+Exporting to HTML
+The exporting to html process works pretty well, it’s just control c, control c, e, similar to exporting an org document. The default export is to HTML 4 I believe although this can be altered in settings. I think it’s easy enough at this point to just use emmet and web mode to change the head to meet HTML 5 standards.
+
+More Markdown Commands
+There are several other markdown commands, that can be accessed with control c, control s, control h but I think the ones I covered are most of the ones that are usable on a regular basis.
+
+From here you can add different level headers rather easily as well as strikethrough, code blocks, etc. It's definitely worth checking out!
+
+GUI Emacs
+With Markdown Mode in some themes, such as material, the font size for the headers is different. This isn’t uniform across all themes as with atom and Zenburn the font appears to be roughly the same size. The highlighting is great on zenburn and pretty good with the atom one dark theme as well for many different lighting conditions. The material light theme works pretty well with the markdown mode for those who prefer a lighter theme or when doing work where you’re reading a lot of text in well lit conditions.
+
+The Verdict
+After an initial look at markdown mode I’ll say while I might change little things like being able to add a space in the link text and alt text for an image. I think this mode will be really useful for someone who needs help with markdown. The initial key combinations are either control c, control s to get a lot of things and control c x 2 to get most of the other things. Your options for usage will appear below the status bar after running one of those commands.
+
+Anyways, thank you for reading!
+
+For a video on the topic, please check out the video below!
+
+Using GIMP to Make a YouTube Thumbnail
+Home | YouTube | Github | Twitter | Teachers Pay Teachers Store | Blog Stats | Resume
+
+To use GIMP you can go the homepage and install it from there or, if you are on a chromebook, as I am, running debian 11, you can install it from the repository with the command:
+
+sudo apt install gimp
+Once GIMP is installed I like to fire it up and start with a base layer when creating a video thumbnail. I typically pick my colorscheme from colorhunt.co using a light background that is a little offwhite. I've been using this colorscheme lately with the light blue as my background.
+
+Note: I set the size of the new image at 1280 by 720, which is ideal for YouTube Videos.
+
+After setting down the base layer I like to open an image of myself (since I'm using it for my channel) by going to File -> Open as Layers. From there I re-scale my layer because it's usually much bigger than the base layer. I like to set the width of my image at 650 pixels, that seems to work well. The height of the image will automatically scale proportionally to the width.
+
+After rescaling the image of myself I move the image to the right with the move tool. I then select the paintbrush tool and make sure the color is set to the same color as the base layer. When doing this you want to make sure you're "on" the image layer and not the base layer. I then start to paint over the image of myself that isn't actually myself.
+
+It's important to not hold down the paintbrush during this entire process. You want to do small parts at a time, that way if you make a mistake you can undo only a small portion and you don't have to start all over.
+
+After painting over the edges I'll carefully outline an image of myself, pausing as described directly above. Once that is done I paint in the rest than move to my shoulders where I make an outline of myself. I then go to the paintbrush and right click to get the airbrush. I use that near my shoulders to get an effect of myself coming out of the layer like a cloud.
+
+After taking care to add an image of myself on the right of the thumbnail I move to the left of the thumbnail to add text. I do that because most English speaking readers have been trained to read from left to right. Think about any book you've ever read. That way they'll read the text on the thumbnail first before associating my image with the channel. I think it's good to have an image of yourself so people feel like they know you. It builds a community.
+
+
+ 
+For the text I use drop shadow where the settings are X and Y 1.00, blur radius 1.00, the color is the dark blue from the color palette above, and opacity is set to 0.900. I then repeat that drop shadow four to five times to help the letters pop from the base layer. I use caps-lock for text on the thumbnail as I think that's more of a statement than having lowercase. Right? The rest of the settings are just default.
+
+Pro Tip: To get to drop shadow, navigate to filters, then light and shadow, then drop shadow. After setting up your drop shadow once you'll be given the option to repeat it under filters.
+
+After that I'll export the created image to a folder called "yt-thumbnails". I name the thumbnail whatever the name of the video is for remembering it easier. As for export settings I keep the default settings, they seem to work fine.
+
+For a video on this process please check out the video below:
+
+
+Copyright © 2021 Timothy Unkert. All rights reserved.
+
