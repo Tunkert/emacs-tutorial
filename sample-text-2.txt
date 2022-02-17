@@ -1,0 +1,83 @@
+This is a line, we can copy it by first marking the region and then using alt-w (kill-ring-save).
+
+This is a line, we can copy it by first marking the region and then using alt-w (kill-ring-save).
+
+This is a line, we can copy it by first marking the region and then using alt-w (kill-ring-save).
+
+This is a line, we can copy it by first marking the region and then using alt-w (kill-ring-save).
+
+We can also demonstrate exchange point and mark by first markding the region then pressing ctrl-x ctrl-x.
+
+We can also demonstrate exchange point and mark by first markding the region then pressing ctrl-x ctrl-x.
+
+We can paste in information from the clipboard with ctrl-y. Let's do that now.
+
+We can mark a paragraph with alt-h. Let's mark this paragraph with alt-h. I need another sentence for this paragraph. O.k. now that should be good.
+
+Let's now make a page break with ctrl-q ctrl-l. We can then mark a page with ctrl-x ctrl-p.
+
+This is line 3.
+
+We can also demonstrate exchange point and mark by first markding the region then pressing ctrl-x ctrl-x.
+
+We can also demonstrate exchange point and mark by first markding the region then pressing ctrl-x ctrl-x.
+
+We can paste in information from the clipboard with ctrl-y. Let's do that now.
+
+We can mark a paragraph with alt-h. Let's mark this paragraph with alt-h. I need another sentence for this paragraph. O.k. now that should be good.
+
+Let's now make a page break with ctrl-q ctrl-l. We can then mark a page with ctrl-x ctrl-p.
+
+
+This is a line, we can copy it by first marking the region and then using alt-w (kill-ring-save).
+
+This is a line, we can copy it by first marking the region and then using alt-w (kill-ring-save).
+
+We can also demonstrate exchange point and mark by first markding the region then pressing ctrl-x ctrl-x.
+
+We can also demonstrate exchange point and mark by first markding the region then pressing ctrl-x ctrl-x.
+
+We can paste in information from the clipboard with ctrl-y. Let's do that now.
+
+We can mark a paragraph with alt-h. Let's mark this paragraph with alt-h. I need another sentence for this paragraph. O.k. now that should be good.
+
+Let's now make a page break with ctrl-q ctrl-l. We can then mark a page with ctrl-x ctrl-p.
+
+
+To mark the whole buffer we can use ctrl-x h. If we want to delete something, break the "chain" of the kill-ring and delete again we can find the previous item with alt-y (we can cycle through these).
+
+Let's delete this.
+
+Let's break the chain by adding a sentence here.
+
+If I spell my name wrong, such as Timmy I can traspose letters with ctrl-t.  But wait I want this line first, I'll have to use alt-x transpose-sentences enter.  Just remember you need to have two spaces at the end of a sentence.
+Let's now delete this.
+
+I can also transpose lines with ctrl-x ctrl-t, but there can't be an empty line in between the lines.
+
+I can capitalize the first letter with alt-c, so if I spell my name as Timmy I can capitalize that.
+
+I can uppercase an entire word with alt-u.
+
+<!DOCTYPE html>
+
+I can downcase an entire word with alt-l.
+
+<!DOCTYPE html>
+
+We can also go backwords, alt - alt u to uppercase the previous word. alt - alt l to downcase the previous word.
+
+We can also alter text by going into overwrite mode. I can totally overwrite this sentence with alt-x overwrite-mode enter.
+
+If I want to undo changes since the last save I can use alt-x revert-buffer enter
+
+To restart with a backup file you can start from the terminal with emacs filename~.
+
+To save the backup file and replace the regular file you can save with ctrl-x ctrl-w then name the file without the ~.
+
+You can control the number of backup files you keep.
+
+Also, you'll see autosaved files - those start with the hashtag (#).
+
+To recover an auto-saved file type alt-x recover-file enter. You can read a file first with ctrl-x ctrl-f to make sure you want to use the auto-saved file.
+
