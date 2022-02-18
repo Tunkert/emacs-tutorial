@@ -1,0 +1,172 @@
+Setting Up Emacs For this Front-End Development Course
+Home | YouTube | Github | Twitter | LinkedIn | Blog Stats | Playlist for the Course
+There are a couple of different ways to setup Emacs for this course. I'll cover the two, the first one involving us going through the init.el file and the second one a simple git command. While the second one is much faster and easier, it's best to go through the first method so that you understand what each setting is doing, before that, however, let's install emacs for the command line only. To do that we need to first open up the terminal that popped up when we installed linux. To do that you can find the app in your linux apps or sometimes in your other apps. Click on the terminal app and once it opens I would recommend that you "pin" it to your task bar. To do that right click on the terminal app and click "pin". Once the terminal is open you want to run the following command in the terminal:
+
+sudo apt install emacs-nox
+Note: if you just type "sudo apt install emacs" this will install both the terminal and gui version. That works fine but it you do that to run the terminal version you will need to open emacs in the terminal with the following command:
+
+emacs -nw
+You can do that and set an alias in your .bash_aliases file to emacs. If you don't want to bother with all that just install "emacs-nox". For the purposes of this course I'll be only using emacs-nox. O.k., once that's done let's get to the configuration. When you initially open emacs an .emacs.d directory will be created. You can get to that directory by using the keyboard command ctrl + x + d and then enter. Alternatively you can use alt + x then type dired and press enter. You can navigate up and down through the directories with the n and p keys. To enter a directory or file navigate to the file and press enter. You can go up a directory by navigating to ".." and pressing enter.
+
+From here go to the .emacs.d directory and enter that directory. The next step is to create a init.el file. You can create a file in emacs with the key chord combination of "control + x, control + f". You'll then be prompted to enter the file's name - for that you want to enter "init.el".
+
+
+ 
+Once the file is created emacs will put you in the file. From here you can start to create setup commands. The first one I put is:
+
+(setq byte-compile-warnings '(cl-functions))
+This will inhibit a warning upon startup with certain packages. I typically put comments in my init.el above the setup command, so I would have the following in my init.el:
+
+;; inihibit cl warning
+(setq byte-compile-warnings '(cl-functions))
+In emacs lisp, the double semi-colon signals the start of a comment. After my first setup command I move on to:
+
+(setq inhibit-splash-screen t)
+By default, when you open emacs you will have a "splash screen" which lists such information as an emacs tutorial, so on, and so forth. The above command simply allows you to start up with an empty "scratch buffer", versus the information screen that you normally get.
+
+On to the next command ...
+
+(menu-bar-mode -1)
+This inhibits the menu at the top of the screen. You may or may not want to do this. I typically like a open screen for my coding with little distractions but if you're new to emacs you may want to leave this one out. If you do put this in you can toggle the menu bar mode on and off with the following command, "toggle-menu-bar-mode" (and press enter). To run a command in emacs you first press alt-x:
+
+So, to toggle the menu on you would complete the following steps:
+
+alt + x
+type "toggle-menu-bar-mode"
+press enter
+You can follow the same steps to get rid of the menu bar. To access the menu bar press f10, then navigate around with the arrow keys. You can press f10 again to exit the menu. **Note: f10 is accessible via the search button and the key in the top row right before the power key. (The top row after the escape key is f1 through f10 - accessed first by pressing the search key which is under the tab button).
+
+Moving on ...
+
+The next command we have is:
+
+(electric-pair-mode 1)
+This command simply allows auto-closing of brackets, which, in my opinion, is helpful in programming. If you don't want auto-closing brackets you can simply not put the command in your init.el. You can also toggle this on and off with the command "electric-pair-mode".
+
+After that you'll want to put in the following commands into your init.el:
+
+
+ 
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+(package-initialize)
+You can now run the command "eval-buffer" and then run the command "package-list-packages". This will refresh packages from Melpa, which is a package manager for emacs. From here you can install packages with the command "package-install". The packages we will be installing are:
+
+js2-mode
+emmet-mode
+markdown-mode
+web-mode
+prettier
+Additionally you may want to install some themes. My repo on github has the following themes installed:
+
+atom one dark theme
+material theme
+gruvobx theme
+dracula theme
+These are dark themes (except material has an additional material light theme), for light themes a few I recommend are:
+
+the default theme which is the one that you open the editor with
+leuven, which comes pre-installed with emacs
+You can find popular themes for emacs here.
+
+Once you've installed packages and any additional themes you may want it's time to get back to your init.el file. Since I prefer "atom-one-dark" I add the following line to my init.el:
+
+(load-theme 'atom-one-dark t)
+You can replace the theme after the ' with whatever you want. Make sure you have the t at the end or else emacs will ask you if you want to trust the theme every time you start up emacs which is kind of annoying.
+
+O.k. on to the serious stuff ... next we want the following line:
+
+(require 'emmet-mode)
+Now we can turn on emmet mode easily with the command "emmet-mode" in whatever buffer we want to use it in.
+
+Emmet mode allows you to easily expand html and css abbreviations for instance if I type "p" then press control and j I get the following:
+
+<p></p>
+Additionally you can expand out quite a bit of html very quickly with ".container>section>(h1+p)", etc then control j. That simple abbreviation would give you:
+
+<div class="container">
+	<section>
+		<h1></h1>
+		<p></p>
+	</section>
+</div>
+
+ 
+As you can see you can quickly expand a lot of html. In fact just typing ! and then control j will give you:
+
+
+ 
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8"/>
+		<title>Document</title>
+	</head>
+	<body></body>
+</html>
+which is a nice framework to start an html file. Emmet mode is very helpful for front end development.
+
+After that we'll have the following lines in our init.el:
+
+;; web mode
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.scss\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.css\\'" . web-mode))
+
+(defun my-web-mode-hook ()
+  "Hooks for Web mode."
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-css-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
+)
+(add-hook 'web-mode-hook  'my-web-mode-hook)
+This stuff turns on web mode in a lot of different types of files and sets some basic indents for markup, like html and css, and additional code.
+
+
+ 
+After setting up web mode you can set up the following in your init.el.
+
+ 
+(setq display-line-numbers-type 'relative) 
+(global-display-line-numbers-mode)
+This gives us line numbers and relative line numbers in all your code which is helpful.
+
+Aside: (pro-tip) to move up 40 lines do control x control u then control p.
+
+After that I have a few additional lines:
+
+;; change spacing at top of buffer
+(add-to-list 'default-frame-alist '(internal-border-width . 7))
+
+;; word count mode
+(require 'wc-mode)
+These are simply for additional space (not sure this is working) on the top and sides of the screen (basically padding) and for an additional package you would need to install (if you add the final line) which is wc-mode.
+
+wc-mode allows me to run the command "wc-mode" which gives me the word count in the status bar at the bottom of the screen. I use this for writing my blog posts in markdown, especially for my 90s style blog experiment. For more about this experiment please check out this video.
+
+So that's the longer method of installing this setup. Now for the shorter method.
+
+Method 2 of setting up Emacs
+To quickly set up emacs run the following in the terminal:
+
+sudo apt install emacs-nox
+git clone https://github.com/Tunkert/emacs-front-end-course
+mv ./emacs-front-end-course ./.emacs.d
+open emacs via the terminal
+Step one simply installs emacs. Step two brings down my .emacs.d configuration with init.el and packages included. Step three renames the folder as .emacs.d. Then in step four you start up emacs.
+
+If you follow this method make sure you complete steps 1 through 3 before you open emacs.
+
+That's about it, thanks for reading. A video on this procedure will be coming soon!
+
+Copyright © 2021 Timothy Unkert. All rights reserved.
+
