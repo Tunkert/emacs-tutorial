@@ -1,0 +1,19 @@
+central intelligence agency is the central intelligence agency.
+
+federal bureau of investigation has the acronym fbi. 
+
+central intelligence agency
+
+English Language Learner is ell.
+
+document.querySelectorAll document.querySelectorAll("")
+
+const listItem = document.querySelectorAll("li");
+
+document.getElementById
+
+const firstParagraph = document.getElementById("firstParagraph");
+
+quiet --> queit
+
+quiet quiet cia gei 
